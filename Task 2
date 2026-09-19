@@ -1,0 +1,20 @@
+def isOdd():
+    return lambda n: n % 2 != 0
+
+def isPrime():
+    return lambda n: n > 1 and all(n % i != 0 for i in range(2, int(n ** 0.5) + 1))
+
+def isPalindrome():
+    return lambda n: str(n) == str(n)[::-1]
+odd = isOdd()
+prime = isPrime()
+palindrome = isPalindrome()
+
+print("Is 12 odd?", odd(12))
+print("Is 8 odd?", odd(8))
+
+print("Is 17 prime?", prime(17))
+print("Is 20 prime?", prime(20))
+
+print("Is 121 a palindrome?", palindrome(121))
+print("Is 123 a palindrome?", palindrome(123))
