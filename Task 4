@@ -1,0 +1,28 @@
+from datetime import datetime
+
+n = int(input())
+
+events = []
+
+for _ in range(n):
+    name, date_string = input().split()
+    date = datetime.strptime(date_string, "%Y-%m-%d")
+    events.append((name, date))
+
+events.sort(key=lambda x: x[1])
+
+print(" ".join(event[0] for event in events))
+
+print(events[0][0])
+
+print(events[-1][0])
+
+month = int(input())
+
+
+month_events = [
+    event[0] for event in events
+    if event[1].month == month
+]
+
+print(" ".join(month_events))
