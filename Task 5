@@ -1,0 +1,15 @@
+n = int(input())
+
+students = []
+
+for _ in range(n):
+    name, marks = input().split()
+    students.append((name, int(marks)))
+
+k = int(input())
+
+students.sort(key=lambda x: (-x[1], x[0]))
+
+top_students = students[:k]
+
+print(*[name for name, marks in top_students])
