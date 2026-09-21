@@ -1,0 +1,44 @@
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def is_older_than(person, age_limit):
+        return person.age > age_limit
+
+    def __str__(self):
+        return f"{self.name} - {self.age}"
+
+
+persons = [
+    Person("Charlie", 25),
+    Person("Alice", 30),
+    Person("Bob", 20),
+    Person("David", 35)
+]
+
+persons.sort(key=lambda person: person.name)
+
+print("Sorted persons:")
+for person in persons:
+    print(person)
+
+
+age_limit = 25
+
+older_persons = list(
+    filter(lambda person: Person.is_older_than(person, age_limit), persons)
+)
+
+print("\nPersons older than", age_limit)
+for person in older_persons:
+    print(person)
+
+upper_case_names = list(
+    map(lambda person: person.name.upper(), persons)
+)
+
+print("\nUppercase names:")
+for name in upper_case_names:
+    print(name)
